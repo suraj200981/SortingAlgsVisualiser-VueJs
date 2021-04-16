@@ -13,7 +13,7 @@
       </v-tooltip>
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
+          <v-btn icon v-bind="attrs" v-on="on" flat to="/insertionsort">
             <v-icon large>mdi-arrow-down-bold-outline</v-icon>
           </v-btn>
         </template>

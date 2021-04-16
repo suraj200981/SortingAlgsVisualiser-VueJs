@@ -1,6 +1,6 @@
 <template>
-  <div class="bubblesort">
-    <h1>This is the bubble sort page</h1>
+  <div class="insertionsort">
+    <h1>This is the insertion sort page</h1>
   </div>
 </template>
 
