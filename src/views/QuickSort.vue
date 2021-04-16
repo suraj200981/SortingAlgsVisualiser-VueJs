@@ -1,12 +1,12 @@
 <template>
-  <div class="insertionsort">
-    <h1>This is the insertion sort page</h1>
+  <div class="quicksort">
+    <h1>This is the quick sort page</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "InsertionSort",
+  name: "QuickSort",
 
   data: () => ({
     //

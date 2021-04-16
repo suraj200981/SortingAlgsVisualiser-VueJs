@@ -21,7 +21,7 @@
       </v-tooltip>
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
+          <v-btn icon v-bind="attrs" v-on="on" flat to="/quicksort">
             <v-icon large>mdi-run-fast</v-icon>
           </v-btn>
         </template>
