@@ -1,7 +1,7 @@
 <template>
-    <v-app>
+  <v-app>
     <v-app-bar absolute color="green" dark fixed>
-      <v-toolbar-title>VueJS AlgVisuliser App </v-toolbar-title>
+      <v-toolbar-title><a href="/">VueJS AlgVisuliser App</a></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
@@ -33,19 +33,10 @@
     <br />
     <br />
     <br />
-    <br />
-    <br />
-
-    <router-link to="/">Home</router-link> |
-    <router-link to="/bubblesort">Bubble Sort</router-link>
-
-    <br />
-    <br />
-    <br />
     <router-view />
     <br />
     <br />
-    </v-app>
+  </v-app>
 </template>
 
 <style lang="scss">
@@ -55,5 +46,15 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-
+.v-application a {
+  color: white !important;
+  text-decoration: none;
+}
+a:link {
+  color: white !important;
+}
+/* visited link */
+a:visited {
+  color: white !important;
+}
 </style>
