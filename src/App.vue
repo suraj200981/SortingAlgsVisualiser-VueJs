@@ -1,7 +1,14 @@
 <template>
   <v-app>
     <v-app-bar absolute color="green" dark fixed>
-      <v-toolbar-title><a href="/">VueJS AlgVisuliser App</a></v-toolbar-title>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-toolbar-title v-bind="attrs" v-on="on"
+            ><a href="/">VueJS AlgVisuliser App</a></v-toolbar-title
+          >
+        </template>
+        <span>Home</span>
+      </v-tooltip>
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
