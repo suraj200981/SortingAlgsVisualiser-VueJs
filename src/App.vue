@@ -5,7 +5,7 @@
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
+          <v-btn icon v-bind="attrs" v-on="on" flat to="/bubblesort">
             <v-icon large>mdi-chart-bubble</v-icon>
           </v-btn>
         </template>
@@ -37,7 +37,7 @@
     <br />
 
     <router-link to="/">Home</router-link> |
-    <router-link to="/bubblesort">About</router-link>
+    <router-link to="/bubblesort">Bubble Sort</router-link>
 
     <br />
     <br />
