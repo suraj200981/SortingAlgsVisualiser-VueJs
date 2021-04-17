@@ -8,7 +8,6 @@
 import VueApexCharts from 'vue-apexcharts'
 
 export default {
-  name: 'Chart',
   components: {
     apexcharts: VueApexCharts,
   },
@@ -19,12 +18,12 @@ export default {
           id: 'basic-bar'
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+          categories: ["position 0", "position 1", "position 2", "position 3", "position 4", "position 5", "position 6", "position 7"]
         }
       },
       series: [{
-        name: 'series-1',
-        data: [30, 40, 45, 50, 49, 60, 70, 91]
+        name: 'Value',
+        data: [30, 40, 45, 50, 49,91, 60, 70, ]
       }]
     }
   },
