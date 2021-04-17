@@ -2,23 +2,9 @@
   <div class="bubblesort">
     <h1>This is the bubble sort page</h1>
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    <center>
+    <Chart/>
+    </center>
     <br />
     <br />
     <br />
@@ -57,8 +43,10 @@
 </template>
 
 <script>
+import Chart from '../components/bubbleSortChart.vue';
 export default {
   name: "BubbleSort",
+  components:{Chart},
 
   data: () => ({
     //
