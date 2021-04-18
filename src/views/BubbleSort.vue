@@ -3,7 +3,7 @@
     <h1>This is the bubble sort page</h1>
     <br />
     <center>
-    <Chart/>
+      <Chart :listdata="items" />
     </center>
     <br />
     <br />
@@ -16,7 +16,7 @@
         <v-layout row>
           <v-flex>
             <v-text-field
-              v-model="message3"
+              v-model="numsInput"
               filled
               rounded
               dense
@@ -43,14 +43,24 @@
 </template>
 
 <script>
-import Chart from '../components/bubbleSortChart.vue';
+import Chart from "../components/bubbleSortChart.vue";
 export default {
   name: "BubbleSort",
-  components:{Chart},
+  components: { Chart },
 
-  data: () => ({
-    //
-  }),
+  data() {
+    return {
+      items: ["first", "second", "lmao"],
+    };
+  },
+  methods: {
+    submitInput() {
+      this.names = this.names.concat({ first: "", last: "" });
+    },
+    handleInput(name, idx) {
+      this.names = this.names.map((n, i) => (i === idx ? name : n));
+    },
+  },
 };
 </script>
 <style scoped>

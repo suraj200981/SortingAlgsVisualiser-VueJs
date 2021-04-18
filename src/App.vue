@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar absolute color="green" dark fixed>
+    <v-app-bar color="green" dark dense fixed>
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-toolbar-title v-bind="attrs" v-on="on"
