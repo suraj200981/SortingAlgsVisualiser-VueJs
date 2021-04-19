@@ -34,8 +34,6 @@ export default {
   },
   data: function () {
     return {
-      numArr: this.listdata[0],
-      renderComponent: this.refreshC,
       chartOptions: {
         chart: {
           id: "basic-bar",
@@ -66,6 +64,7 @@ mounted: {
    methods: {
  updateChart() {
 
+        console.log(this.numArr)
 
         const colors = ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0']
 
@@ -74,10 +73,11 @@ mounted: {
           colors: [colors[Math.floor(Math.random()*colors.length)]]
         };
         // In the same way, update the series option
-        this.series = [{
-          data: Math.floor(this.numArr[0])
-        }]
-        console.log(this.numArr)
+        
+
+this.series = [{
+          data: this.listdata
+        }]        
       }
 }
 }

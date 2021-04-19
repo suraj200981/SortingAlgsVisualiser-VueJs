@@ -3,7 +3,7 @@
     <h1>This is the bubble sort page</h1>
     <br />
     <center>
-      <Chart :listdata="myResult" :refreshC="refreshChart"/>
+      <Chart :listdata="myResult"/>
     </center>
     <br />
     <br />
@@ -58,7 +58,7 @@ export default {
   data() {
     return {
       input:"",
-      myResult: 0,
+      myResult: [],
     };
   },
   methods: {
