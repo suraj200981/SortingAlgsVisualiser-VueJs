@@ -8,24 +8,46 @@
       :options="chartOptions"
       :series="series"
     ></apexcharts>
-    <v-btn
-      color="accent"
-      elevation="24"
-      x-large
-      @click="updateChartWithRandomValues"
-      >Generate random numbers</v-btn
-    >
-    <v-btn color="accent" elevation="24" x-large @click="updateChart"
-      >Update!</v-btn
-    >
+    <v-container fluid>
+      <v-layout :column="$vuetify.breakpoint.smAndDown">
+        <v-flex>
+          <v-btn
+            color="accent"
+            elevation="24"
+            x-large
+            @click="updateChartWithRandomValues"
+            >Generate random numbers</v-btn
+          >
+        </v-flex>
+        <v-flex>
+          <v-btn color="accent" elevation="24" x-large @click="updateChart"
+            >Update!</v-btn
+          >
+        </v-flex>
 
+        <v-flex>
+          <v-btn class="mx-2" x-large fab dark color="teal">
+            <v-icon dark>
+              mdi-arrow-left-bold-circle Austin Andrews @Templarian
+            </v-icon>
+          </v-btn>
+        </v-flex>
+        <v-flex>
+          <v-btn class="mx-2" x-large fab dark color="teal" @click="bubbleSortAlg">
+            <v-icon dark>
+              mdi-arrow-right-bold-circle Austin Andrews @Templarian
+            </v-icon>
+          </v-btn>
+        </v-flex>
+      </v-layout>
+    </v-container>
     <br />
     <br />
 
     <div>
-      {{ listdata }}
+      User input: {{ listdata }}
       <br />
-      {{ randomNumArr }}
+      Randomly generated: {{ randomNumArr }}
     </div>
   </div>
 </template>
@@ -66,20 +88,19 @@ export default {
       },
       series: [
         {
-          name: "series-1",
+          name: "Bubble Sort",
           data: [30, 40, 45, 50, 49, 60, 70, 81],
         },
       ],
     };
   },
-  mounted: {},
   methods: {
     updateChartWithRandomValues() {
       var arr = [];
-        const max = 100;
-        const min = 1;
+      const max = 100;
+      const min = 1;
       for (var i = 0, t = 8; i < t; i++) {
-        arr.push( Math.floor(Math.random() * (max - min + 1)) + min);
+        arr.push(Math.floor(Math.random() * (max - min + 1)) + min);
       }
 
       this.randomNumArr = arr;
@@ -94,7 +115,7 @@ export default {
 
       this.series = [
         {
-          data: arr,
+          data: this.randomNumArr,
         },
       ];
     },
@@ -113,7 +134,26 @@ export default {
         },
       ];
     },
-    bubbleSortAlg() {},
+    bubbleSortAlg() {
+      var randArr = this.randomNumArr;
+      var temp1;
+      var temp2;
+
+      for (var j = 0; j < randArr.length-1; j++) {//number of compares is array size -1
+           for (var x = 0; x < randArr.length-1; x++) {
+             if (randArr[x] > randArr[x + 1]) {
+
+                    temp1 = randArr[x + 1];//1
+                    temp2 = randArr[x];//5
+
+                    randArr[x] = temp1;// 1
+                    randArr[x + 1] = temp2;//5
+
+                }
+                console.log(randArr);
+      }
+    }
   },
-};
+}
+}
 </script>
