@@ -8,7 +8,11 @@
       :options="chartOptions"
       :series="series"
     ></apexcharts>
-    <v-btn color="accent" elevation="24" x-large @click="updateChartWithRandomValues"
+    <v-btn
+      color="accent"
+      elevation="24"
+      x-large
+      @click="updateChartWithRandomValues"
       >Generate random numbers</v-btn
     >
     <v-btn color="accent" elevation="24" x-large @click="updateChart"
@@ -21,6 +25,7 @@
     <div>
       {{ listdata }}
       <br />
+      {{ randomNumArr }}
     </div>
   </div>
 </template>
@@ -33,6 +38,9 @@ export default {
     listdata: {
       type: Array,
     },
+  },
+  randomNumArr: {
+    type: Array,
   },
   components: {
     apexcharts: VueApexCharts,
@@ -67,28 +75,30 @@ export default {
   mounted: {},
   methods: {
     updateChartWithRandomValues() {
-       const max = 90;
+      var arr = [];
+        const max = 100;
         const min = 1;
-        const newData = this.series[0].data.map(() => {
-          return Math.floor(Math.random() * (max - min + 1)) + min
-        })
-                const colors = ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0']
+      for (var i = 0, t = 8; i < t; i++) {
+        arr.push( Math.floor(Math.random() * (max - min + 1)) + min);
+      }
 
-         // Make sure to update the whole options config and not just a single property to allow the Vue watch catch the change.
-       this.chartOptions = {
+      this.randomNumArr = arr;
+
+      const colors = ["#008FFB", "#00E396", "#FEB019", "#FF4560", "#775DD0"];
+
+      // Make sure to update the whole options config and not just a single property to allow the Vue watch catch the change.
+      this.chartOptions = {
         colors: [colors[Math.floor(Math.random() * colors.length)]],
       };
       // In the same way, update the series option
 
       this.series = [
         {
-          data: newData,
+          data: arr,
         },
       ];
-
     },
     updateChart() {
-
       const colors = ["#008FFB", "#00E396", "#FEB019", "#FF4560", "#775DD0"];
 
       // Make sure to update the whole options config and not just a single property to allow the Vue watch catch the change.
