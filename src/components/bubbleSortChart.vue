@@ -8,6 +8,8 @@
       :options="chartOptions"
       :series="series"
     ></apexcharts>
+           <button @click="updateChart">Update!</button>
+
     <br />
     <br />
 
@@ -32,7 +34,7 @@ export default {
   },
   data: function () {
     return {
-      numArr: this.listdata,
+      numArr: this.listdata[0],
       renderComponent: this.refreshC,
       chartOptions: {
         chart: {
@@ -53,23 +55,32 @@ export default {
       },
       series: [
         {
-          name: "Value",
-          data: [1,2,3,4,5,6,7,8],
+          name: "series-1",
+          data: [30, 40, 45, 50, 49, 60, 70, 81]
         },
       ],
     };
   },
-
+mounted: {
+},
    methods: {
-      forceRerender() {
-        // Remove my-component from the DOM
-        this.renderComponent = false;
+ updateChart() {
 
-        this.$nextTick(() => {
-          // Add the component back in
-          this.renderComponent = true;
-        });
+
+        const colors = ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0']
+
+        // Make sure to update the whole options config and not just a single property to allow the Vue watch catch the change.
+        this.chartOptions = {
+          colors: [colors[Math.floor(Math.random()*colors.length)]]
+        };
+        // In the same way, update the series option
+        this.series = [{
+          data: Math.floor(this.numArr[0])
+        }]
+        console.log(this.numArr)
       }
-   }
-};
+}
+}
+
+
 </script>
