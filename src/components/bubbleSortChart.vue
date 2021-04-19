@@ -24,6 +24,11 @@
             >Update!</v-btn
           >
         </v-flex>
+        <v-flex>
+          <v-btn color="accent" elevation="24" x-large @click="bubbleSortAlg"
+            >Auto sort</v-btn
+          >
+        </v-flex>
 
         <v-flex>
           <v-btn class="mx-2" x-large fab dark color="teal">
@@ -33,7 +38,14 @@
           </v-btn>
         </v-flex>
         <v-flex>
-          <v-btn class="mx-2" x-large fab dark color="teal" @click="bubbleSortAlg">
+          <v-btn
+            class="mx-2"
+            x-large
+            fab
+            dark
+            color="teal"
+            @click="bubbleSortStepForward"
+          >
             <v-icon dark>
               mdi-arrow-right-bold-circle Austin Andrews @Templarian
             </v-icon>
@@ -139,21 +151,52 @@ export default {
       var temp1;
       var temp2;
 
-      for (var j = 0; j < randArr.length-1; j++) {//number of compares is array size -1
-           for (var x = 0; x < randArr.length-1; x++) {
-             if (randArr[x] > randArr[x + 1]) {
+      for (var j = 0; j < randArr.length - 1; j++) {
+        //number of compares is array size -1
+        for (var x = 0; x < randArr.length - 1; x++) {
+          if (randArr[x] > randArr[x + 1]) {
+            temp1 = randArr[x + 1];
+            temp2 = randArr[x];
 
-                    temp1 = randArr[x + 1];//1
-                    temp2 = randArr[x];//5
+            randArr[x] = temp1;
+            randArr[x + 1] = temp2;
+            this.series = [
+            {
+              data: randArr,
+            },
+          ];
+          }
+          console.log(randArr);
+          
+        }
+      }
+    },
+    bubbleSortStepForward(){
+         var randArr = this.randomNumArr;
+      var temp1;
+      var temp2;
 
-                    randArr[x] = temp1;// 1
-                    randArr[x + 1] = temp2;//5
+      for (var j = 0; j < 1; j++) {
+        //number of compares is array size -1
+        for (var x = 0; x < randArr.length - 1; x++) {
+          if (randArr[x] > randArr[x + 1]) {
+            temp1 = randArr[x + 1];
+            temp2 = randArr[x];
 
-                }
-                console.log(randArr);
+            randArr[x] = temp1;
+            randArr[x + 1] = temp2;
+            this.series = [
+            {
+              data: randArr,
+            },
+          ];
+          this.randomNumArr = randArr
+          }
+          console.log(randArr);
+          
+        }
       }
     }
   },
-}
-}
+};
 </script>
