@@ -76,14 +76,12 @@ export default {
   randomNumArr: {
     type: Array,
   },
-  stepForward: {
-    type: Number,
-  },
   components: {
     apexcharts: VueApexCharts,
   },
   data: function () {
     return {
+      stepForward: 0,
       chartOptions: {
         chart: {
           id: "basic-bar",
@@ -174,29 +172,47 @@ export default {
       }
     },
     bubbleSortStepForward() {
-      var randArr = this.randomNumArr;
+      console.log(this.stepForward);
+      console.log(randArr); //this works
+      console.log(this.randomNumArr); //this works
+      var randArr;
+      randArr = this.randomNumArr;
+
       var temp1;
       var temp2;
+      var inc = this.stepForward;
+      console.log("test" + randArr); //this works
+      console.log(this.stepForward);
 
-      for (var j = 0; j < 1; j++) {
-        //number of compares is array size -1
-        for (var x = this.stepForward; x < 1; x++) {
-          if (randArr[x] > randArr[x + 1]) {
-            temp1 = randArr[x + 1];
-            temp2 = randArr[x];
+      for (var x = inc; x < inc + 1; x++) {
+        if (randArr[x] > randArr[x + 1]) {
+          temp1 = randArr[x + 1];
+          temp2 = randArr[x];
 
-            randArr[x] = temp1;
-            randArr[x + 1] = temp2;
-            this.series = [
-              {
-                data: randArr,
-              },
-            ];
-            this.randomNumArr = randArr;
-            this.stepForward = this.stepForward + 1;
-          }
-          console.log(randArr);
+          randArr[x] = temp1;
+          randArr[x + 1] = temp2;
+          this.series = [
+            {
+              data: randArr,
+            },
+          ];
+          this.randomNumArr = randArr;
+          this.stepForward = inc;
         }
+
+        this.randomNumArr = randArr;
+        this.stepForward = inc;
+        console.log(randArr); //this works
+        console.log(this.randomNumArr); //this works
+        console.log(this.stepForward);
+      }
+      inc++;
+      this.randomNumArr = randArr;
+      this.stepForward = inc;
+      if (inc == this.randomNumArr.length) {
+        inc = 0;
+        this.randomNumArr = randArr;
+        this.stepForward = inc;
       }
     },
   },
