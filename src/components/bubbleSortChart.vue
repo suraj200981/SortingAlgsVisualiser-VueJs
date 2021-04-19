@@ -1,6 +1,7 @@
 <template>
   <div class="example">
     <apexcharts
+    ref="realtimeChart"
       width="1000"
       height="500"
       type="bar"
@@ -12,6 +13,7 @@
 
     <div>
       {{ listdata }}
+      <br />
     </div>
   </div>
 </template>
@@ -20,14 +22,18 @@
 import VueApexCharts from "vue-apexcharts";
 
 export default {
-  props: [
-    'listdata'
-    ],
+  props: {
+    listdata: {
+      type: Array,
+    },
+  },
   components: {
     apexcharts: VueApexCharts,
   },
   data: function () {
     return {
+      numArr: this.listdata,
+      renderComponent: this.refreshC,
       chartOptions: {
         chart: {
           id: "basic-bar",
@@ -48,10 +54,22 @@ export default {
       series: [
         {
           name: "Value",
-          data: [30, 80, 45, 50, 49, 91, 60, 70],
+          data: [1,2,3,4,5,6,7,8],
         },
       ],
     };
   },
+
+   methods: {
+      forceRerender() {
+        // Remove my-component from the DOM
+        this.renderComponent = false;
+
+        this.$nextTick(() => {
+          // Add the component back in
+          this.renderComponent = true;
+        });
+      }
+   }
 };
 </script>

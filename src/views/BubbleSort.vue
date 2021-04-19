@@ -3,7 +3,7 @@
     <h1>This is the bubble sort page</h1>
     <br />
     <center>
-      <Chart :listdata="items" />
+      <Chart :listdata="myResult" :refreshC="refreshChart"/>
     </center>
     <br />
     <br />
@@ -13,30 +13,37 @@
     <br />
     <center>
       <div id="inputContainer">
-        <v-layout row>
-          <v-flex>
-            <v-text-field
-              v-model="numsInput"
+            
+            <v-container fluid>
+      <v-layout 
+          :column="$vuetify.breakpoint.smAndDown"
+      >
+        <v-flex>
+        <v-text-field
+              v-model="input"
               filled
               rounded
               dense
               prepend-inner-icon="mdi-numeric"
               label="Enter numbers to sort here"
               clearable
+
             ></v-text-field>
-          </v-flex>
-          <v-flex>
-            <v-btn
+        </v-flex>
+        <v-flex>
+          <v-btn
               :loading="loading3"
               :disabled="loading3"
+              absolute
               color="blue-grey"
               class="ma-2 white--text"
-              @click="loader = 'loading3'"
+              @click="(loader = 'loading3'), submitInput()"
             >
               Submit
             </v-btn>
-          </v-flex>
-        </v-layout>
+        </v-flex>
+      </v-layout>
+            </v-container>
       </div>
     </center>
   </div>
@@ -50,15 +57,17 @@ export default {
 
   data() {
     return {
-      items: ["first", "second", "lmao"],
+      input:"",
+      myResult: 0,
     };
   },
   methods: {
     submitInput() {
-      this.names = this.names.concat({ first: "", last: "" });
-    },
-    handleInput(name, idx) {
-      this.names = this.names.map((n, i) => (i === idx ? name : n));
+
+      this.myResult = this.input.split(" ").map( n => parseInt(n, 10)); // seperate each number
+      console.log(this.myResult);
+      this.input = ""; //reset the text field to empty on click
+
     },
   },
 };
