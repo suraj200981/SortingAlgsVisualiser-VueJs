@@ -76,6 +76,9 @@ export default {
   randomNumArr: {
     type: Array,
   },
+  stepForward: {
+    type: Number,
+  },
   components: {
     apexcharts: VueApexCharts,
   },
@@ -161,24 +164,23 @@ export default {
             randArr[x] = temp1;
             randArr[x + 1] = temp2;
             this.series = [
-            {
-              data: randArr,
-            },
-          ];
+              {
+                data: randArr,
+              },
+            ];
           }
           console.log(randArr);
-          
         }
       }
     },
-    bubbleSortStepForward(){
-         var randArr = this.randomNumArr;
+    bubbleSortStepForward() {
+      var randArr = this.randomNumArr;
       var temp1;
       var temp2;
 
       for (var j = 0; j < 1; j++) {
         //number of compares is array size -1
-        for (var x = 0; x < randArr.length - 1; x++) {
+        for (var x = this.stepForward; x < 1; x++) {
           if (randArr[x] > randArr[x + 1]) {
             temp1 = randArr[x + 1];
             temp2 = randArr[x];
@@ -186,17 +188,17 @@ export default {
             randArr[x] = temp1;
             randArr[x + 1] = temp2;
             this.series = [
-            {
-              data: randArr,
-            },
-          ];
-          this.randomNumArr = randArr
+              {
+                data: randArr,
+              },
+            ];
+            this.randomNumArr = randArr;
+            this.stepForward = this.stepForward + 1;
           }
           console.log(randArr);
-          
         }
       }
-    }
+    },
   },
 };
 </script>
