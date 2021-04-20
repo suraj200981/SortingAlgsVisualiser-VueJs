@@ -8,6 +8,97 @@
       :options="chartOptions"
       :series="series"
     ></apexcharts>
+    <br />
+    <br />
+  <v-btn
+      class="mx-2"
+      fab
+      :disabled="true"
+      dark
+      large
+      color="blue"
+    >
+      <v-icon dark>
+        mdi-cursor-pointer
+      </v-icon>
+    </v-btn>
+      <v-btn
+      class="mx-2"
+      fab
+      dark
+      large
+      color="blue"
+    >
+      <v-icon dark>
+        mdi-cursor-pointer
+      </v-icon>
+    </v-btn>
+      <v-btn
+      class="mx-2"
+      fab
+      dark
+      large
+      color="blue"
+    >
+      <v-icon dark>
+        mdi-cursor-pointer
+      </v-icon>
+    </v-btn>
+      <v-btn
+      class="mx-2"
+      fab
+      dark
+      large
+      color="blue"
+    >
+      <v-icon dark>
+        mdi-cursor-pointer
+      </v-icon>
+    </v-btn>
+      <v-btn
+      class="mx-2"
+      fab
+      dark
+      large
+      color="blue"
+    >
+      <v-icon dark>
+        mdi-cursor-pointer
+      </v-icon>
+    </v-btn>
+      <v-btn
+      class="mx-2"
+      fab
+      dark
+      large
+      color="blue"
+    >
+      <v-icon dark>
+        mdi-cursor-pointer
+      </v-icon>
+    </v-btn>
+      <v-btn
+      class="mx-2"
+      fab
+      dark
+      large
+      color="blue"
+    >
+      <v-icon dark>
+        mdi-cursor-pointer
+      </v-icon>
+    </v-btn>
+      <v-btn
+      class="mx-2"
+      fab
+      dark
+      large
+      color="blue"
+    >
+      <v-icon dark>
+        mdi-cursor-pointer
+      </v-icon>
+    </v-btn>
     <v-container fluid>
       <v-layout :column="$vuetify.breakpoint.smAndDown">
         <v-flex>
@@ -218,3 +309,8 @@ export default {
   },
 };
 </script>
+<style>
+button.v-btn[disabled] {
+  opacity: 0.6;
+}
+</style>
