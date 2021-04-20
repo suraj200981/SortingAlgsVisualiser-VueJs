@@ -8,98 +8,89 @@
       :options="chartOptions"
       :series="series"
     ></apexcharts>
-    <br />
-    <br />
-  <v-btn
-      class="mx-2"
-      fab
-      :disabled="true"
-      dark
-      large
-      color="blue"
-    >
-      <v-icon dark>
-        mdi-cursor-pointer
-      </v-icon>
-    </v-btn>
+    <div style="margin-right: 390px; ">
       <v-btn
-      class="mx-2"
-      fab
-      dark
-      large
-      color="blue"
-    >
-      <v-icon dark>
-        mdi-cursor-pointer
-      </v-icon>
-    </v-btn>
+        class="mx-2"
+        style="margin-left: -250px !important; position: absolute"
+        fab
+        dark
+        large
+        color="red"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
       <v-btn
-      class="mx-2"
-      fab
-      dark
-      large
-      color="blue"
-    >
-      <v-icon dark>
-        mdi-cursor-pointer
-      </v-icon>
-    </v-btn>
+        class="mx-2"
+        style="margin-left: -152px !important; position: absolute"
+        fab
+        dark
+        large
+        color="red"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
       <v-btn
-      class="mx-2"
-      fab
-      dark
-      large
-      color="blue"
-    >
-      <v-icon dark>
-        mdi-cursor-pointer
-      </v-icon>
-    </v-btn>
+        class="mx-2"
+        style="margin-left: -40px !important; position: absolute"
+        fab
+        dark
+        large
+        color="red"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
       <v-btn
-      class="mx-2"
-      fab
-      dark
-      large
-      color="blue"
-    >
-      <v-icon dark>
-        mdi-cursor-pointer
-      </v-icon>
-    </v-btn>
+        class="mx-2"
+        style="margin-left: 80px !important; position: absolute"
+        fab
+        dark
+        large
+        color="red"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
       <v-btn
-      class="mx-2"
-      fab
-      dark
-      large
-      color="blue"
-    >
-      <v-icon dark>
-        mdi-cursor-pointer
-      </v-icon>
-    </v-btn>
+        class="mx-2"
+        style="margin-left: 200px !important; position: absolute"
+        fab
+        dark
+        large
+        color="red"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
       <v-btn
-      class="mx-2"
-      fab
-      dark
-      large
-      color="blue"
-    >
-      <v-icon dark>
-        mdi-cursor-pointer
-      </v-icon>
-    </v-btn>
+        class="mx-2"
+        style="margin-left: 320px !important; position: absolute"
+        fab
+        dark
+        large
+        color="red"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
       <v-btn
-      class="mx-2"
-      fab
-      dark
-      large
-      color="blue"
-    >
-      <v-icon dark>
-        mdi-cursor-pointer
-      </v-icon>
-    </v-btn>
-    <v-container fluid>
+        class="mx-2"
+        style="margin-left: 440px !important; position: absolute"
+        fab
+        dark
+        large
+        color="red"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
+      <v-btn
+        class="mx-2"
+        style="margin-left: 550px !important; position: absolute"
+        fab
+        dark
+        large
+        color="red"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
+    </div>
+    <v-container style="margin-top:100px;">
       <v-layout :column="$vuetify.breakpoint.smAndDown">
         <v-flex>
           <v-btn
@@ -137,9 +128,7 @@
             color="teal"
             @click="bubbleSortStepForward"
           >
-            <v-icon dark>
-              mdi-arrow-right-bold-circle Austin Andrews @Templarian
-            </v-icon>
+            <v-icon dark> mdi-arrow-right-bold-circle </v-icon>
           </v-btn>
         </v-flex>
       </v-layout>
