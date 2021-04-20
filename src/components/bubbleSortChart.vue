@@ -8,22 +8,74 @@
       :options="chartOptions"
       :series="series"
     ></apexcharts>
-    <div style="margin-right: 390px; ">
+    <div style="margin-right: 350px">
       <v-btn
         class="mx-2"
         style="margin-left: -250px !important; position: absolute"
         fab
         dark
         large
+        elevation="24"
+        color="red"
+        v-if="showPointer === 0"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
+      <v-btn
+        class="mx-2"
+        style="margin-left: -130px !important; position: absolute"
+        fab
+        dark
+        large
+        elevation="24"
+        color="red"
+        v-if="showPointer === 1"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
+      <v-btn
+        class="mx-2"
+        style="margin-left: -20px !important; position: absolute"
+        fab
+        dark
+        large
+        elevation="24"
+        color="red"
+        v-if="showPointer === 2"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
+      <v-btn
+        class="mx-2"
+        style="margin-left: 100px !important; position: absolute"
+        fab
+        dark
+        elevation="24"
+        large
+        color="red"
+        v-if="showPointer == 3"
+      >
+        <v-icon dark> mdi-cursor-pointer </v-icon>
+      </v-btn>
+      <v-btn
+        class="mx-2"
+        style="margin-left: 220px !important; position: absolute"
+        fab
+        dark
+        large
+        elevation="24"
+        v-if="showPointer === 4"
         color="red"
       >
         <v-icon dark> mdi-cursor-pointer </v-icon>
       </v-btn>
       <v-btn
         class="mx-2"
-        style="margin-left: -152px !important; position: absolute"
+        style="margin-left: 340px !important; position: absolute"
         fab
         dark
+        elevation="24"
+        v-if="showPointer === 5"
         large
         color="red"
       >
@@ -31,66 +83,30 @@
       </v-btn>
       <v-btn
         class="mx-2"
-        style="margin-left: -40px !important; position: absolute"
+        style="margin-left: 455px !important; position: absolute"
         fab
         dark
+        v-if="showPointer == 6"
         large
+        elevation="24"
         color="red"
       >
         <v-icon dark> mdi-cursor-pointer </v-icon>
       </v-btn>
       <v-btn
         class="mx-2"
-        style="margin-left: 80px !important; position: absolute"
+        style="margin-left: 575px !important; position: absolute"
         fab
+        v-if="showPointer == 7"
         dark
-        large
-        color="red"
-      >
-        <v-icon dark> mdi-cursor-pointer </v-icon>
-      </v-btn>
-      <v-btn
-        class="mx-2"
-        style="margin-left: 200px !important; position: absolute"
-        fab
-        dark
-        large
-        color="red"
-      >
-        <v-icon dark> mdi-cursor-pointer </v-icon>
-      </v-btn>
-      <v-btn
-        class="mx-2"
-        style="margin-left: 320px !important; position: absolute"
-        fab
-        dark
-        large
-        color="red"
-      >
-        <v-icon dark> mdi-cursor-pointer </v-icon>
-      </v-btn>
-      <v-btn
-        class="mx-2"
-        style="margin-left: 440px !important; position: absolute"
-        fab
-        dark
-        large
-        color="red"
-      >
-        <v-icon dark> mdi-cursor-pointer </v-icon>
-      </v-btn>
-      <v-btn
-        class="mx-2"
-        style="margin-left: 550px !important; position: absolute"
-        fab
-        dark
+        elevation="24"
         large
         color="red"
       >
         <v-icon dark> mdi-cursor-pointer </v-icon>
       </v-btn>
     </div>
-    <v-container style="margin-top:100px;">
+    <v-container style="margin-top: 100px">
       <v-layout :column="$vuetify.breakpoint.smAndDown">
         <v-flex>
           <v-btn
@@ -162,6 +178,7 @@ export default {
   data: function () {
     return {
       stepForward: 0,
+      showPointer: 0,
       chartOptions: {
         chart: {
           id: "basic-bar",
@@ -287,10 +304,12 @@ export default {
         console.log(this.stepForward);
       }
       inc++;
+      this.showPointer++;
       this.randomNumArr = randArr;
       this.stepForward = inc;
       if (inc == this.randomNumArr.length) {
         inc = 0;
+        this.showPointer=0;
         this.randomNumArr = randArr;
         this.stepForward = inc;
       }
