@@ -270,17 +270,17 @@ export default {
       var randArr;
       randArr = this.randomNumArr;
 
-        for (var x = 0; x < randArr.length ; ++x) {//8
-            current = randArr[x];//8
-            var j = x - 1;
+      for (var x = 0; x < randArr.length; ++x) {
+        //8
+        current = randArr[x]; //8
+        var j = x - 1;
 
-            while (j >= 0 && randArr[j] > current) {
-                randArr[j + 1] = randArr[j];
-                j = j - 1;
-            }
-            randArr[j + 1] = current;
-
+        while (j >= 0 && randArr[j] > current) {
+          randArr[j + 1] = randArr[j];
+          j = j - 1;
         }
+        randArr[j + 1] = current;
+      }
 
       console.log(randArr);
       this.series = [
@@ -290,37 +290,32 @@ export default {
       ];
     },
     bubbleSortStepForward() {
-      console.log(this.stepForward);
-      console.log(randArr); //this works
-      console.log(this.randomNumArr); //this works
+      var current;
       var randArr;
       randArr = this.randomNumArr;
-
-      var temp1;
-      var temp2;
       var inc = this.stepForward;
 
-      for (var x = inc; x < inc + 1; x++) {
-        if (randArr[x] > randArr[x + 1]) {
-          temp1 = randArr[x + 1];
-          temp2 = randArr[x];
+      for (var x = inc; x < inc + 1; ++x) {
+        current = randArr[x];
+        var j = x - 1;
 
-          randArr[x] = temp1;
-          randArr[x + 1] = temp2;
+        while (j >= 0 && randArr[j] > current) {
+          randArr[j + 1] = randArr[j];
+          j = j - 1;
           this.series = [
             {
               data: randArr,
             },
           ];
-          this.randomNumArr = randArr;
-          this.stepForward = inc;
         }
-
+        randArr[j + 1] = current;
+        this.series = [
+          {
+            data: randArr,
+          },
+        ];
         this.randomNumArr = randArr;
         this.stepForward = inc;
-        console.log(randArr); //this works
-        console.log(this.randomNumArr); //this works
-        console.log(this.stepForward);
       }
       inc++;
       this.showPointer++;
