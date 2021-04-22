@@ -3,7 +3,7 @@
     <h1>This is the bubble sort page</h1>
     <br />
     <center>
-      <Chart :listdata="myResult"/>
+      <Chart :listdata="input" />
     </center>
     <br />
     <br />
@@ -27,20 +27,9 @@
               prepend-inner-icon="mdi-numeric"
               label="Enter numbers to sort here"
               clearable
+              style="position:absolute;"
 
             ></v-text-field>
-        </v-flex>
-        <v-flex>
-          <v-btn
-              :loading="loading3"
-              :disabled="loading3"
-              absolute
-              color="blue-grey"
-              class="ma-2 white--text"
-              @click="(loader = 'loading3'), submitInput()"
-            >
-              Submit
-            </v-btn>
         </v-flex>
       </v-layout>
             </v-container>
@@ -58,17 +47,16 @@ export default {
   data() {
     return {
       input:"",
-      myResult: [],
     };
   },
   methods: {
-    submitInput() {
+    // submitInput() {
 
-      this.myResult = this.input.split(" ").map( n => parseInt(n, 10)); // seperate each number
-      console.log(this.myResult);
-      this.input = ""; //reset the text field to empty on click
+    //   this.myResult = this.input.split(" ").map( n => parseInt(n, 10)); // seperate each number
+    //   console.log(this.myResult);
+    //   this.input = ""; //reset the text field to empty on click
 
-    },
+    // },
   },
 };
 </script>
@@ -83,6 +71,6 @@ export default {
   margin-right: -200px;
 }
 #inputContainer {
-  margin-left: 500px;
+  margin-left: 750px;
 }
 </style>

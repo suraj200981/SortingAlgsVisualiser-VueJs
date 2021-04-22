@@ -118,11 +118,6 @@
           >
         </v-flex>
         <v-flex>
-          <v-btn color="accent" elevation="24" x-large @click="updateChart"
-            >Update!</v-btn
-          >
-        </v-flex>
-        <v-flex>
           <v-btn color="accent" elevation="24" x-large @click="bubbleSortAlg"
             >Auto sort</v-btn
           >
@@ -152,11 +147,17 @@
     <br />
     <br />
 
-    <div>
-      User input: {{ listdata }}
-      <br />
-      Randomly generated: {{ randomNumArr }}
-    </div>
+      <v-btn
+              :loading="loading3"
+              :disabled="loading3"
+              absolute
+              color="blue-grey"
+              class="ma-2 white--text"
+              @click="(loader = 'loading3'), updateChart()"
+              style="position:absolute; margin-top:160px !important; margin-left:180px !important;"
+            >
+              Submit
+            </v-btn>
   </div>
 </template>
 
@@ -166,10 +167,16 @@ import VueApexCharts from "vue-apexcharts";
 export default {
   props: {
     listdata: {
-      type: Array,
+      type: String,
+    },
+    InputDataSubmited: {
+      type: Boolean,
     },
   },
   randomNumArr: {
+    type: Array,
+  },
+  myResult:{
     type: Array,
   },
   components: {
@@ -228,21 +235,26 @@ export default {
           data: this.randomNumArr,
         },
       ];
+      this.showPointer = 0; //resetting the array pointer position
+      this.stepForward = 0; //resetting the array x position
     },
     updateChart() {
-      const colors = ["#008FFB", "#00E396", "#FEB019", "#FF4560", "#775DD0"];
 
-      // Make sure to update the whole options config and not just a single property to allow the Vue watch catch the change.
-      this.chartOptions = {
-        colors: [colors[Math.floor(Math.random() * colors.length)]],
-      };
-      // In the same way, update the series option
+      this.myResult= this.myResult = this.listdata.split(" ").map( n => parseInt(n, 10)); // seperate each number
+     
+        const colors = ["#008FFB", "#00E396", "#FEB019", "#FF4560", "#775DD0"];
 
-      this.series = [
-        {
-          data: this.listdata,
-        },
-      ];
+        // Make sure to update the whole options config and not just a single property to allow the Vue watch catch the change.
+        this.chartOptions = {
+          colors: [colors[Math.floor(Math.random() * colors.length)]],
+        };
+        // In the same way, update the series option
+
+        this.series = [
+          {
+            data: this.myResult,
+          },
+        ];
     },
     bubbleSortAlg() {
       var randArr = this.randomNumArr;
@@ -278,8 +290,6 @@ export default {
       var temp1;
       var temp2;
       var inc = this.stepForward;
-      console.log("test" + randArr); //this works
-      console.log(this.stepForward);
 
       for (var x = inc; x < inc + 1; x++) {
         if (randArr[x] > randArr[x + 1]) {
@@ -309,7 +319,7 @@ export default {
       this.stepForward = inc;
       if (inc == this.randomNumArr.length) {
         inc = 0;
-        this.showPointer=0;
+        this.showPointer = 0;
         this.randomNumArr = randArr;
         this.stepForward = inc;
       }
