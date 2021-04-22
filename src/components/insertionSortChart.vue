@@ -267,25 +267,20 @@ export default {
     },
     insertionSortAlg() {
       var current;
-      var temp1 = 0;
       var randArr;
       randArr = this.randomNumArr;
 
-      for (var x = 0; x < randArr.length; x++) {
-        //8
-        current = randArr[x]; //8
+        for (var x = 0; x < randArr.length ; ++x) {//8
+            current = randArr[x];//8
+            var j = x - 1;
 
-        for (var j = x + 1; j < randArr.length; j++) {
-          //2
+            while (j >= 0 && randArr[j] > current) {
+                randArr[j + 1] = randArr[j];
+                j = j - 1;
+            }
+            randArr[j + 1] = current;
 
-          if (current > randArr[j]) {
-            temp1 = randArr[j];
-            randArr[j] = current; //8
-            randArr[x] = temp1; //2
-          }
-          current = temp1;
         }
-      }
 
       console.log(randArr);
       this.series = [
