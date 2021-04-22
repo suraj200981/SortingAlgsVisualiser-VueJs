@@ -1,6 +1,6 @@
 <template>
   <div class="bubblesort">
-    <h1>This is the bubble sort page</h1>
+    <h1>Below is my implentation of Bubble Sort</h1>
     <br />
     <center>
       <Chart :listdata="input" />
